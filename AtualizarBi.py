@@ -135,7 +135,7 @@ class NetlifyAutomation:
             commit_button = self.aguardar_elemento_clicavel(By.XPATH, "//button[@data-edit-text='Commit changes']")
             commit_button.click()
 
-            time.sleep(15)
+            time.sleep(5)
 
         except Exception as e:
             print(f"Erro ao executar ações no GitHub: {e}")
@@ -148,8 +148,8 @@ if __name__ == "__main__":
             print(f'Início loop: {time.strftime("%Y-%m-%d %H:%M:%S")}')
             try:
                 # Descomente as funções que deseja executar
-                # robo.tracking()
-                # robo.db_Performance()
+                robo.tracking()
+                robo.db_Performance()
                 
                 # Inicia a automação do GitHub após as tarefas do Robo
                 automation = NetlifyAutomation()
