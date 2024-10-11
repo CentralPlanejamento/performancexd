@@ -13,7 +13,7 @@ class Robo:
     def __init__(self):
         self.nome_salvar_print = 'alterar'
         self.extensao_salvar_print = '.PNG'
-        self.pasta = r"C:\Users\Robô 01\Desktop\Robo em teste\robo-print"
+        self.pasta = r"C:\Users\Robô 01\Desktop\streamlib.app"
 
     def capturar_imagem(self, left, top, right, bottom, nome_arquivo):
         try:
@@ -105,22 +105,23 @@ class NetlifyAutomation:
         )
 
     def foto(self):
-        url = "https://app.netlify.com/sites/performancexd/deploys/66821f4f556142b9f969a157"
+        url = "https://github.com/CentralPlanejamento/performancexd"
         self.driver.get(url)
 
         try:
-            deploy_nav_item = self.aguardar_elemento_clicavel(By.XPATH, "//span[text()='Deploys']")
+            deploy_nav_item = self.aguardar_elemento_clicavel(By.XPATH, '//*[@id=":R5b5ab:"]')
             deploy_nav_item.click()
         except Exception as e:
             print(f"Erro ao clicar no nav item: {e}")
 
         try:
-            upload_label = self.aguardar_elemento_clicavel(By.XPATH, "//label[@for='dropzone-upload']")
+            # Espera pelo elemento de upload usando o XPath correto
+            upload_label = self.aguardar_elemento_clicavel(By.XPATH, '//*[@id="upload-manifest-files-input"]')
             upload_label.click()
         except Exception as e:
             print(f"Erro ao clicar no rótulo de upload: {e}")
 
-        time.sleep(15)
+        time.sleep(15)  # Ajuste conforme necessário
         py.press('enter')
         time.sleep(5)
         py.press('tab')  
@@ -151,18 +152,15 @@ if __name__ == "__main__":
                 robo.tracking()
                 robo.db_Performance()
                 
-                # Start NetlifyAutomation after Robo tasks
+                # Inicia a automação do Netlify após as tarefas do Robo
                 automation = NetlifyAutomation()
                 automation.run()
                 
             except Exception as e:
                 print(f"Erro durante a execução do loop do Robo: {e}")
-                # O loop reiniciará automaticamente em caso de erro
 
-            # Pause to prevent rapid looping
+            # Pause para evitar loops rápidos
             time.sleep(5)
 
     except KeyboardInterrupt:
         print("Execução interrompida pelo usuário.")
-    
-    
