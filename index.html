@@ -10,7 +10,7 @@
     <nav class="btn-mobile">
         <button onclick="toggleMenu()">Abrir Menu</button>
         <h1>ACOMPANHAMENTO ONLINE</h1>
-        <h2>A página será recarregada a cada 7 segundos</h2>
+        <h2>A página será recarregada a cada 15 segundos</h2>
     </nav>
 
     <div class="menu">
@@ -46,29 +46,24 @@
         <div class="imagem Outbound">
             <img src="Outbound.PNG" alt="Outbound">
         </div>
-
     </div>
 
     <script>
         function mostrarImagem(classe) {
-            // Esconde todas as imagens
             let imagens = document.querySelectorAll('.imagens .imagem');
             imagens.forEach(imagem => {
-                imagem.classList.remove('visivel'); // Remove a classe visivel de todas as imagens
+                imagem.classList.remove('visivel');
             });
 
-            // Mostra apenas a imagem da classe clicada
             let imagemSelecionada = document.querySelector(`.imagens .imagem.${classe}`);
             if (imagemSelecionada) {
-                imagemSelecionada.classList.add('visivel'); // Adiciona a classe visivel na imagem selecionada
+                imagemSelecionada.classList.add('visivel');
             }
         }
 
         function toggleMenu() {
             var menu = document.querySelector('.menu');
             var btn = document.querySelector('.btn-mobile button');
-
-            // Verifica se o menu está visível ou não
             var style = window.getComputedStyle(menu);
             if (style.display === 'none' || style.display === '') {
                 menu.style.display = 'block';
@@ -79,18 +74,15 @@
             }
         }
 
-        // Exibe a imagem 'Produtividade' por padrão ao carregar a página
         document.addEventListener('DOMContentLoaded', () => {
             mostrarImagem('Produtividade');
         });
 
-        function reloadPage(){
-            const timestamp = new Date().getTime();
-            window.location.href = `index.html?timestamp=${timestamp}`;
+        function reloadPage() {
+            location.reload(true); // Recarrega a página ignorando o cache
         }
 
-        setInterval(reloadPage, 7000);
-
+        setInterval(reloadPage, 15000);
     </script>
 </body>
 </html>
