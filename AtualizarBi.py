@@ -1,6 +1,5 @@
 import os
 import time
-import datetime
 from PIL import ImageGrab
 import pyautogui as py
 from pywinauto import Desktop
@@ -80,7 +79,7 @@ class Robo:
                 py.moveTo(0, 370)
                 time.sleep(2)
                 self.capturar_imagem(25, 120, 1185, 650, nome)
-                print(f'"Print {nome}" finalizado às: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+                print(f'"Print {nome}" finalizado.')
         except Exception as e:
             print(f"Erro ao capturar desempenho do banco: {e}")
 
@@ -104,57 +103,56 @@ class NetlifyAutomation:
             EC.element_to_be_clickable((by, value))
         )
 
-    def foto(self):
+    def executar_github(self):
         url = "https://github.com/CentralPlanejamento/performancexd"
         self.driver.get(url)
 
+        time.sleep(1)
+        
+        # Localizando e clicando no botão "Add file"
         try:
-            deploy_nav_item = self.aguardar_elemento_clicavel(By.XPATH, '//*[@id=":R5b5ab:"]')
-            deploy_nav_item.click()
+            elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")
+            elemento.click()
+
+            time.sleep(1)
+            
+            # Localizando o link "Upload files" e clicando
+            elemento = self.aguardar_elemento_clicavel(By.ID, ":rq:--label")
+            elemento.click()
+
+            time.sleep(1)
+            
+            py.click(691 , 466)
+            time.sleep(4)
+            py.press('ctrl' + 'a')
+            time.sleep(1)
+            py.press('enter')
+            time.sleep(10)
+            
+            
+            # Localizando e clicando no botão "Commit changes"
+            commit_button = self.aguardar_elemento_clicavel(By.XPATH, "//button[@data-edit-text='Commit changes']")
+            commit_button.click()
+
+            time.sleep(15)
+
         except Exception as e:
-            print(f"Erro ao clicar no nav item: {e}")
-
-        try:
-            # Espera pelo elemento de upload usando o XPath correto
-            upload_label = self.aguardar_elemento_clicavel(By.XPATH, '//*[@id="upload-manifest-files-input"]')
-            upload_label.click()
-        except Exception as e:
-            print(f"Erro ao clicar no rótulo de upload: {e}")
-
-        time.sleep(15)  # Ajuste conforme necessário
-        py.press('enter')
-        time.sleep(5)
-        py.press('tab')  
-        time.sleep(2)
-        py.press('enter')
-        time.sleep(17)
-
-    def fechar_navegador(self):
-        self.driver.quit()
-        print("Navegador fechado.")
-
-    def run(self):
-        try:
-            self.foto()
-        except Exception as e:
-            print(f"Erro na execução do Selenium: {e}")
-            raise  # Lança a exceção novamente
-        finally:
-            self.fechar_navegador()  # Certifique-se de fechar o navegador após a execução
+            print(f"Erro ao executar ações no GitHub: {e}")
 
 if __name__ == "__main__":
     robo = Robo()
     
     try:
         while True:
-            print(f'Início loop: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+            print(f'Início loop: {time.strftime("%Y-%m-%d %H:%M:%S")}')
             try:
-                robo.tracking()
-                robo.db_Performance()
+                # Descomente as funções que deseja executar
+                # robo.tracking()
+                # robo.db_Performance()
                 
-                # Inicia a automação do Netlify após as tarefas do Robo
+                # Inicia a automação do GitHub após as tarefas do Robo
                 automation = NetlifyAutomation()
-                automation.run()
+                automation.executar_github()  # Chama o método correto
                 
             except Exception as e:
                 print(f"Erro durante a execução do loop do Robo: {e}")
