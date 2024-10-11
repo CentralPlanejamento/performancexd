@@ -83,6 +83,7 @@ class Robo:
         except Exception as e:
             print(f"Erro ao capturar desempenho do banco: {e}")
 
+
 class NetlifyAutomation:
     def __init__(self):
         profile_path = r"C:\Users\Robô 01\AppData\Local\Google\Chrome\User Data\Profile 3"
