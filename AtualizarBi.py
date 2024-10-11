@@ -122,10 +122,11 @@ class NetlifyAutomation:
 
             time.sleep(1)
             
-            py.click(691 , 466)
+            py.click(665 , 516)
             time.sleep(4)
-            py.press('ctrl' + 'a')
+            py.click(570 , 385)
             time.sleep(1)
+            py.hotkey('ctrl', 'a')
             py.press('enter')
             time.sleep(10)
             
