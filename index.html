@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Produtividade</title>
     <link rel="stylesheet" href="index.css">
 </head>
@@ -10,7 +13,6 @@
     <nav class="btn-mobile">
         <button onclick="toggleMenu()">Abrir Menu</button>
         <h1>ACOMPANHAMENTO ONLINE</h1>
-        <h2>A página será recarregada a cada 15 segundos</h2>
     </nav>
 
     <div class="menu">
@@ -78,11 +80,7 @@
             mostrarImagem('Produtividade');
         });
 
-        function reloadPage() {
-            location.reload(true); // Recarrega a página ignorando o cache
-        }
 
-        setInterval(reloadPage, 15000);
     </script>
 </body>
 </html>
