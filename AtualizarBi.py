@@ -139,6 +139,11 @@ class NetlifyAutomation:
 
         except Exception as e:
             print(f"Erro ao executar ações no GitHub: {e}")
+            
+            
+    def fechar_driver(self):
+        self.driver.quit()
+        print("Navegador fechado.")
 
 if __name__ == "__main__":
     robo = Robo()
@@ -154,6 +159,9 @@ if __name__ == "__main__":
                 # Inicia a automação do GitHub após as tarefas do Robo
                 automation = NetlifyAutomation()
                 automation.executar_github()  # Chama o método correto
+                
+                # Fecha o navegador após a execução
+                automation.fechar_driver()
                 
             except Exception as e:
                 print(f"Erro durante a execução do loop do Robo: {e}")
