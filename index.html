@@ -77,12 +77,12 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem('pageReloaded')) {
+                window.location.reload(true);
+                localStorage.setItem('pageReloaded', 'true');
+            }
             mostrarImagem('Produtividade');
         });
-
-        setTimeout(() => {
-            window.location.reload(true);
-        },15000)
 
     </script>
 </body>
