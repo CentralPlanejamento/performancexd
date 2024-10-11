@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtividade</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <nav class="btn-mobile">
+        <button onclick="toggleMenu()">Abrir Menu</button>
+        <h1>ACOMPANHAMENTO ONLINE</h1>
+    </nav>
+
+    <div class="menu">
+        <button onclick="mostrarImagem('Produtividade')">Produtividade Geral</button>
+        <button onclick="mostrarImagem('Recebimento')">Recebimento</button>
+        <button onclick="mostrarImagem('Inbound')">Inbound</button>
+        <button onclick="mostrarImagem('Consolidacao')">Consolidação</button>
+        <button onclick="mostrarImagem('Greenzone')">Greenzone</button>
+        <button onclick="mostrarImagem('Outbound')">Outbound</button>
+    </div>
+
+    <div class="imagens">
+        <div class="imagem Produtividade visivel">
+            <img src="Produtividade.PNG" alt="Produtividade Geral">
+        </div>
+
+        <div class="imagem Recebimento">
+            <img src="Recebimento.PNG" alt="Recebimento">
+        </div>
+
+        <div class="imagem Inbound">
+            <img src="Inbound.PNG" alt="Inbound">
+        </div>
+
+        <div class="imagem Consolidacao">
+            <img src="Consolidacao.PNG" alt="Consolidação">
+        </div>
+
+        <div class="imagem Greenzone">
+            <img src="Greenzone.PNG" alt="Greenzone">
+        </div>
+
+        <div class="imagem Outbound">
+            <img src="Outbound.PNG" alt="Outbound">
+        </div>
+
+    </div>
+
+    <script>
+        function mostrarImagem(classe) {
+            // Esconde todas as imagens
+            let imagens = document.querySelectorAll('.imagens .imagem');
+            imagens.forEach(imagem => {
+                imagem.classList.remove('visivel'); // Remove a classe visivel de todas as imagens
+            });
+
+            // Mostra apenas a imagem da classe clicada
+            let imagemSelecionada = document.querySelector(`.imagens .imagem.${classe}`);
+            if (imagemSelecionada) {
+                imagemSelecionada.classList.add('visivel'); // Adiciona a classe visivel na imagem selecionada
+            }
+        }
+
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            var btn = document.querySelector('.btn-mobile button');
+
+            // Verifica se o menu está visível ou não
+            var style = window.getComputedStyle(menu);
+            if (style.display === 'none' || style.display === '') {
+                menu.style.display = 'block';
+                btn.textContent = 'Fechar Menu';
+            } else {
+                menu.style.display = 'none';
+                btn.textContent = 'Abrir Menu';
+            }
+        }
+
+        // Exibe a imagem 'Produtividade' por padrão ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            mostrarImagem('Produtividade');
+        });
+    </script>
+</body>
+</html>
