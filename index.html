@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>Produtividade</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css?v=1.0"> <!-- Adicionei ?v=1.0 -->
 </head>
 <body>
     <nav class="btn-mobile">
@@ -26,27 +26,27 @@
 
     <div class="imagens">
         <div class="imagem Produtividade visivel">
-            <img src="Produtividade.PNG" alt="Produtividade Geral">
+            <img src="Produtividade.PNG?v=1.0" alt="Produtividade Geral"> <!-- Adicionei ?v=1.0 -->
         </div>
 
         <div class="imagem Recebimento">
-            <img src="Recebimento.PNG" alt="Recebimento">
+            <img src="Recebimento.PNG?v=1.0" alt="Recebimento"> <!-- Adicionei ?v=1.0 -->
         </div>
 
         <div class="imagem Inbound">
-            <img src="Inbound.PNG" alt="Inbound">
+            <img src="Inbound.PNG?v=1.0" alt="Inbound"> <!-- Adicionei ?v=1.0 -->
         </div>
 
         <div class="imagem Consolidacao">
-            <img src="Consolidacao.PNG" alt="Consolidação">
+            <img src="Consolidacao.PNG?v=1.0" alt="Consolidação"> <!-- Adicionei ?v=1.0 -->
         </div>
 
         <div class="imagem Greenzone">
-            <img src="Greenzone.PNG" alt="Greenzone">
+            <img src="Greenzone.PNG?v=1.0" alt="Greenzone"> <!-- Adicionei ?v=1.0 -->
         </div>
 
         <div class="imagem Outbound">
-            <img src="Outbound.PNG" alt="Outbound">
+            <img src="Outbound.PNG?v=1.0" alt="Outbound"> <!-- Adicionei ?v=1.0 -->
         </div>
     </div>
 
@@ -77,10 +77,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            if (!localStorage.getItem('pageReloaded')) {
-                window.location.reload(true);
-                localStorage.setItem('pageReloaded', 'true');
-            }
             mostrarImagem('Produtividade');
         });
 
