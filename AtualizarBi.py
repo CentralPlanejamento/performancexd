@@ -172,4 +172,3 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         print("Execução interrompida pelo usuário.")
-    
