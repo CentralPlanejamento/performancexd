@@ -59,7 +59,7 @@ class Robo:
     def db_Performance(self):
         try:
             py.click(485, 80)
-            time.sleep(40)
+            time.sleep(45)
             py.click(873, 515)
             time.sleep(1)
 
