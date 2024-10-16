@@ -154,8 +154,8 @@ if __name__ == "__main__":
             print(f'Início loop: {time.strftime("%Y-%m-%d %H:%M:%S")}')
             try:
                 # Descomente as funções que deseja executar
-                #robo.tracking()
-                #robo.db_Performance()
+                robo.tracking()
+                robo.db_Performance()
                 
                 # Inicia a automação do GitHub após as tarefas do Robo
                 automation = NetlifyAutomation()
