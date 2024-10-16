@@ -64,12 +64,12 @@ class Robo:
             time.sleep(1)
 
             abas = {
-                'Produtividade': (210, 682),
-                'Recebimento': (289, 674),
-                'Consolidacao': (406, 672),
-                'Inbound': (498, 675),
-                'Greenzone': (585, 679),
-                'Outbound': (678, 674)
+                'Produtividade': (198 , 684),
+                'Recebimento': (340 , 678),
+                'Consolidacao': (447 , 676),
+                'Inbound': (548 , 674),
+                'Greenzone': (638 , 677),
+                'Outbound': (729 , 684)
             }
 
             for nome, coordenadas in abas.items():
@@ -104,48 +104,47 @@ class NetlifyAutomation:
             EC.element_to_be_clickable((by, value))
         )
 
-def executar_github(self):
-    url = "https://github.com/CentralPlanejamento/performancexd"
-    self.driver.get(url)
-
-    # Aguardando a página carregar completamente
-    WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")))
-
-    time.sleep(1)
-
-    # Localizando e clicando no botão "Add file"
-    try:
-        elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")
-        elemento.click()
+    def executar_github(self):
+        url = "https://github.com/CentralPlanejamento/performancexd"
+        self.driver.get(url)
 
         time.sleep(1)
+        
+        # Localizando e clicando no botão "Add file"
+        try:
+            elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")
+            elemento.click()
 
-        # Localizando o link "Upload files" e clicando
-        elemento = self.aguardar_elemento_clicavel(By.ID, ":rq:--label")
-        elemento.click()
+            time.sleep(1)
+            
+            # Localizando o link "Upload files" e clicando
+            elemento = self.aguardar_elemento_clicavel(By.ID, ":rq:--label")
+            elemento.click()
 
-        time.sleep(1)
+            time.sleep(1)
+            
+            py.click(665 , 516)
+            time.sleep(4)
+            py.click(570 , 385)
+            time.sleep(1)
+            py.hotkey('ctrl', 'a')
+            py.press('enter')
+            time.sleep(10)
+            
+            
+            # Localizando e clicando no botão "Commit changes"
+            commit_button = self.aguardar_elemento_clicavel(By.XPATH, "//button[@data-edit-text='Commit changes']")
+            commit_button.click()
 
-        py.click(665, 516)
-        time.sleep(4)
-        py.click(570, 385)
-        time.sleep(1)
-        py.hotkey('ctrl', 'a')
-        py.press('enter')
-        time.sleep(10)
+            time.sleep(5)
 
-        # Localizando e clicando no botão "Commit changes"
-        commit_button = self.aguardar_elemento_clicavel(By.XPATH, "//button[@data-edit-text='Commit changes']")
-        commit_button.click()
-
-        time.sleep(5)
-
-    except Exception as e:
-        print(f"Erro ao executar ações no GitHub: {e}")
-
-def fechar_driver(self):
-    self.driver.quit()
-    print("Navegador fechado.")
+        except Exception as e:
+            print(f"Erro ao executar ações no GitHub: {e}")
+            
+            
+    def fechar_driver(self):
+        self.driver.quit()
+        print("Navegador fechado.")
 
 if __name__ == "__main__":
     robo = Robo()
@@ -155,8 +154,8 @@ if __name__ == "__main__":
             print(f'Início loop: {time.strftime("%Y-%m-%d %H:%M:%S")}')
             try:
                 # Descomente as funções que deseja executar
-                robo.tracking()
-                robo.db_Performance()
+                #robo.tracking()
+                #robo.db_Performance()
                 
                 # Inicia a automação do GitHub após as tarefas do Robo
                 automation = NetlifyAutomation()
