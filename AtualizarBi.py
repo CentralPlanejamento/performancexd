@@ -104,47 +104,48 @@ class NetlifyAutomation:
             EC.element_to_be_clickable((by, value))
         )
 
-    def executar_github(self):
-        url = "https://github.com/CentralPlanejamento/performancexd"
-        self.driver.get(url)
+def executar_github(self):
+    url = "https://github.com/CentralPlanejamento/performancexd"
+    self.driver.get(url)
+
+    # Aguardando a página carregar completamente
+    WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")))
+
+    time.sleep(1)
+
+    # Localizando e clicando no botão "Add file"
+    try:
+        elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")
+        elemento.click()
 
         time.sleep(1)
-        
-        # Localizando e clicando no botão "Add file"
-        try:
-            elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")
-            elemento.click()
 
-            time.sleep(1)
-            
-            # Localizando o link "Upload files" e clicando
-            elemento = self.aguardar_elemento_clicavel(By.ID, ":rq:--label")
-            elemento.click()
+        # Localizando o link "Upload files" e clicando
+        elemento = self.aguardar_elemento_clicavel(By.ID, ":rq:--label")
+        elemento.click()
 
-            time.sleep(1)
-            
-            py.click(665 , 516)
-            time.sleep(4)
-            py.click(570 , 385)
-            time.sleep(1)
-            py.hotkey('ctrl', 'a')
-            py.press('enter')
-            time.sleep(10)
-            
-            
-            # Localizando e clicando no botão "Commit changes"
-            commit_button = self.aguardar_elemento_clicavel(By.XPATH, "//button[@data-edit-text='Commit changes']")
-            commit_button.click()
+        time.sleep(1)
 
-            time.sleep(5)
+        py.click(665, 516)
+        time.sleep(4)
+        py.click(570, 385)
+        time.sleep(1)
+        py.hotkey('ctrl', 'a')
+        py.press('enter')
+        time.sleep(10)
 
-        except Exception as e:
-            print(f"Erro ao executar ações no GitHub: {e}")
-            
-            
-    def fechar_driver(self):
-        self.driver.quit()
-        print("Navegador fechado.")
+        # Localizando e clicando no botão "Commit changes"
+        commit_button = self.aguardar_elemento_clicavel(By.XPATH, "//button[@data-edit-text='Commit changes']")
+        commit_button.click()
+
+        time.sleep(5)
+
+    except Exception as e:
+        print(f"Erro ao executar ações no GitHub: {e}")
+
+def fechar_driver(self):
+    self.driver.quit()
+    print("Navegador fechado.")
 
 if __name__ == "__main__":
     robo = Robo()
