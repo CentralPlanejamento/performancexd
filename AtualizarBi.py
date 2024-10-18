@@ -108,7 +108,7 @@ class NetlifyAutomation:
         url = "https://github.com/CentralPlanejamento/performancexd"
         self.driver.get(url)
 
-        time.sleep(1)
+        time.sleep(8)
         
         # Localizando e clicando no botão "Add file"
         try:
