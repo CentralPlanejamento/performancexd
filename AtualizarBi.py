@@ -115,13 +115,13 @@ class NetlifyAutomation:
             elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")
             elemento.click()
 
-            time.sleep(1)
+            time.sleep(4)
             
             # Localizando o link "Upload files" e clicando
             elemento = self.aguardar_elemento_clicavel(By.ID, ":rq:--label")
             elemento.click()
 
-            time.sleep(1)
+            time.sleep(3)
             
             py.click(665 , 516)
             time.sleep(4)
