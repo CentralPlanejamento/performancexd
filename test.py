@@ -50,14 +50,11 @@ class NetlifyAutomation:
             elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "a[role='menuitem'][href='/CentralPlanejamento/performancexd/upload/main']")
             elemento.click()
 
-            time.sleep(2)
-
-
-            
-            py.click(665 , 516)
-            time.sleep(4)
-            py.click(570 , 385)
             time.sleep(3)
+   
+            py.click(665 , 516)
+            time.sleep(6)
+            py.click(570 , 385)
             py.hotkey('ctrl', 'a')
             py.press('enter')
             time.sleep(10)
