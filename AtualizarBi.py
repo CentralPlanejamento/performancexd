@@ -118,7 +118,7 @@ class NetlifyAutomation:
             time.sleep(4)
             
             # Localizando o link "Upload files" e clicando
-            elemento = self.aguardar_elemento_clicavel(By.ID, ":rq:--label")
+            elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "a[role='menuitem'][href='/CentralPlanejamento/performancexd/upload/main']")
             elemento.click()
 
             time.sleep(3)
@@ -126,9 +126,7 @@ class NetlifyAutomation:
             py.click(665 , 516)
             time.sleep(4)
             py.click(570 , 385)
-            time.sleep(1)
             py.hotkey('ctrl', 'a')
-            time.sleep(2)
             py.press('enter')
             time.sleep(10)
             
