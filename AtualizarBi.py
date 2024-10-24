@@ -50,7 +50,7 @@ class Robo:
         aba_tracking1 = (122, 687)
         py.click(aba_tracking1)
         py.click(687, 217)
-        time.sleep(150)
+        time.sleep(165)
         py.hotkey('ctrl', 'b')
         time.sleep(4)
 
@@ -75,7 +75,7 @@ class Robo:
             for nome, coordenadas in abas.items():
                 self.nome_salvar_print = nome
                 py.click(coordenadas)
-                time.sleep(3)
+                time.sleep(2)
                 py.moveTo(0, 370)
                 time.sleep(2)
                 self.capturar_imagem(25, 120, 1185, 650, nome)
