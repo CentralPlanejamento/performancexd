@@ -171,4 +171,4 @@ if __name__ == "__main__":
             time.sleep(5)
 
     except KeyboardInterrupt:
-        print("Execução interrompida pelo usuário.")    
+        print("Execução interrompida pelo usuário.")
