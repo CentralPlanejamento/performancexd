@@ -104,14 +104,18 @@ class NetlifyAutomation:
             EC.element_to_be_clickable((by, value))
         )
 
+    time.sleep(20)
+
+
     def executar_github(self):
         url = "https://github.com/CentralPlanejamento/performancexd"
         self.driver.get(url)
 
-        time.sleep(8)
+
         
         # Localizando e clicando no botão "Add file"
         try:
+            time.sleep(2)
             elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")
             elemento.click()
 
