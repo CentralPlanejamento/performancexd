@@ -104,8 +104,6 @@ class NetlifyAutomation:
             EC.element_to_be_clickable((by, value))
         )
 
-    time.sleep(20)
-
 
     def executar_github(self):
         url = "https://github.com/CentralPlanejamento/performancexd"

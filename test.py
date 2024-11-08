@@ -36,25 +36,31 @@ class NetlifyAutomation:
             EC.element_to_be_clickable((by, value))
         )
 
+
     def executar_github(self):
         url = "https://github.com/CentralPlanejamento/performancexd"
         self.driver.get(url)
+
+
         
         # Localizando e clicando no botão "Add file"
         try:
+            time.sleep(2)
             elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "#\\:R5b5ab\\: > span.Box-sc-g0xbh4-0.gUkoLg > span")
             elemento.click()
 
-
+            time.sleep(4)
+            
             # Localizando o link "Upload files" e clicando
             elemento = self.aguardar_elemento_clicavel(By.CSS_SELECTOR, "a[role='menuitem'][href='/CentralPlanejamento/performancexd/upload/main']")
             elemento.click()
 
             time.sleep(3)
-   
+            
             py.click(665 , 516)
             time.sleep(6)
             py.click(570 , 385)
+            time.sleep(4)
             py.hotkey('ctrl', 'a')
             py.press('enter')
             time.sleep(10)
@@ -96,3 +102,5 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         print("Execução interrompida pelo usuário.")    
+
+
