@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Produtividade</title>
+    <link rel="stylesheet" href="index.css?v=1.0"> <!-- Adicionei ?v=1.0 -->
+</head>
+<body>
+    <nav class="btn-mobile">
+        <button onclick="toggleMenu()">Abrir Menu</button>
+        <h1>ACOMPANHAMENTO ONLINE</h1>
+    </nav>
+
+    <div class="menu">
+        <button onclick="mostrarImagem('Produtividade')">Produtividade Geral</button>
+        <button onclick="mostrarImagem('Recebimento')">Recebimento</button>
+        <button onclick="mostrarImagem('Inbound')">Inbound</button>
+        <button onclick="mostrarImagem('Consolidacao')">Consolidação</button>
+        <button onclick="mostrarImagem('Greenzone')">Greenzone</button>
+        <button onclick="mostrarImagem('Outbound')">Outbound</button>
+    </div>
+
+    <div class="imagens">
+        <div class="imagem Produtividade visivel">
+            <img src="Produtividade.PNG?v=1.0" alt="Produtividade Geral"> <!-- Adicionei ?v=1.0 -->
+        </div>
+
+        <div class="imagem Recebimento">
+            <img src="Recebimento.PNG?v=1.0" alt="Recebimento"> <!-- Adicionei ?v=1.0 -->
+        </div>
+
+        <div class="imagem Inbound">
+            <img src="Inbound.PNG?v=1.0" alt="Inbound"> <!-- Adicionei ?v=1.0 -->
+        </div>
+
+        <div class="imagem Consolidacao">
+            <img src="Consolidacao.PNG?v=1.0" alt="Consolidação"> <!-- Adicionei ?v=1.0 -->
+        </div>
+
+        <div class="imagem Greenzone">
+            <img src="Greenzone.PNG?v=1.0" alt="Greenzone"> <!-- Adicionei ?v=1.0 -->
+        </div>
+
+        <div class="imagem Outbound">
+            <img src="Outbound.PNG?v=1.0" alt="Outbound"> <!-- Adicionei ?v=1.0 -->
+        </div>
+    </div>
+
+    <script>
+        function mostrarImagem(classe) {
+            let imagens = document.querySelectorAll('.imagens .imagem');
+            imagens.forEach(imagem => {
+                imagem.classList.remove('visivel');
+            });
+
+            let imagemSelecionada = document.querySelector(`.imagens .imagem.${classe}`);
+            if (imagemSelecionada) {
+                imagemSelecionada.classList.add('visivel');
+            }
+        }
+
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            var btn = document.querySelector('.btn-mobile button');
+            var style = window.getComputedStyle(menu);
+            if (style.display === 'none' || style.display === '') {
+                menu.style.display = 'block';
+                btn.textContent = 'Fechar Menu';
+            } else {
+                menu.style.display = 'none';
+                btn.textContent = 'Abrir Menu';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            mostrarImagem('Produtividade');
+        });
+
+    </script>
+</body>
+</html>
