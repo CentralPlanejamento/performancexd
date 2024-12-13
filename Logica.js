@@ -332,7 +332,7 @@ function atualizarStatusConferencia() {
         const placa = row.cells[0].textContent.trim(); // A placa do veículo está na coluna 1
         const uc = row.cells[2].textContent.trim();    // A UC está na coluna 3
         const concatenacao = `${placa}|${uc}`;
-        const statusCell = row.cells[10];
+        const statusCell = row.cells[11];
         const statusText = statusCell.querySelector('span');
 
         if (auditoriaMap.has(concatenacao)) {
